@@ -2,7 +2,7 @@
 
 <div align="center">
 
-![Codeforces](https://img.shields.io/badge/Codeforces-dumooroo-blue?style=for-the-badge&logo=codeforces)
+[![Codeforces](https://img.shields.io/badge/Codeforces-dumooroo-blue?style=for-the-badge&logo=codeforces)](https://codeforces.com/profile/dumooroo)
 ![Рейтинг](https://img.shields.io/badge/Рейтинг-Обновляется...-green?style=for-the-badge)
 ![Решено задач](https://img.shields.io/badge/Решено_задач-0+-brightgreen?style=for-the-badge)
 
