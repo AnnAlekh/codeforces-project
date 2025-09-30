@@ -56,19 +56,27 @@ def update_readme():
 [![Рейтинг](https://img.shields.io/badge/Рейтинг-{rating}-green?style=for-the-badge)](https://codeforces.com/profile/dumooroo)
 [![Решено задач](https://img.shields.io/badge/Решено_задач-{solved_count}+-brightgreen?style=for-the-badge)](https://codeforces.com/submissions/dumooroo)'''
     
-    # Обновляем секцию с бейджами
-    badge_pattern = r'\[\!\[Codeforces\].*?\n\[\!\[Рейтинг\].*?\n\[\!\[Решено задач\].*?\]'
-    content = re.sub(badge_pattern, new_badges, content, flags=re.DOTALL)
+    badge_section_pattern = r'<div align="center">\s*\n.*?\n.*?\n.*?\s*</div>'
     
-    # Обновляем дату последнего обновления
-    update_time = datetime.now().strftime("%d.%m.%Y %H:%M")
-    content = re.sub(r'Последнее обновление:.*', f'Последнее обновление: {update_time}', content)
+    new_badge_section = f'''<div align="center">
+
+{new_badges}
+
+*Последнее обновление: {datetime.now().strftime("%d.%m.%Y %H:%M")}*
+
+</div>'''
+    
+    # Заменяем секцию бейджей
+    content = re.sub(badge_section_pattern, new_badge_section, content, flags=re.DOTALL)
     
     # Записываем обновленный контент
     with open('README.md', 'w', encoding='utf-8') as file:
         file.write(content)
     
-    print(f"Статистика обновлена! Решено задач: {solved_count}, Рейтинг: {rating}")
+    print(f"✅ Статистика обновлена!")
+    print(f"📊 Решено задач: {solved_count}")
+    print(f"🏆 Рейтинг: {rating}")
+    print(f"⭐ Макс. рейтинг: {max_rating}")
 
 if __name__ == "__main__":
     update_readme()
